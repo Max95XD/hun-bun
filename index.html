@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitty Quest ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Animated Background -->
+<div id="sky">
+<div id="stars"></div>
+<div id="shooting-stars"></div>
+<div id="hearts"></div>
+<div id="flowers"></div>
+<div id="butterflies"></div>
+<div id="sparkles"></div>
+<div id="moon"></div>
+</div>
+
+<!-- Loading Screen -->
+<div id="loading">
+
+<h1>Kitty Quest ❤️</h1>
+
+<div class="loading-bar">
+
+<div id="loading-fill"></div>
+
+</div>
+
+<p id="loading-text">Loading...</p>
+
+<button id="startBtn">Start Game</button>
+
+</div>
+
+<!-- HUD -->
+
+<header id="hud">
+
+<div class="logo">
+Kitty Quest ❤️
+</div>
+
+<div class="xp-container">
+
+<div class="xp-text">
+Level 1
+</div>
+
+<div class="xp-bar">
+
+<div id="xp-fill"></div>
+
+</div>
+
+</div>
+
+<div class="stats">
+
+<div>❤️ <span id="heartCount">0</span></div>
+
+<div>🌸 <span id="flowerCount">0</span></div>
+
+<div>⭐ <span id="starCount">0</span></div>
+
+<div>💎 <span id="gemCount">0</span></div>
+
+<div>🪙 <span id="coinCount">0</span></div>
+
+</div>
+
+</header>
+
+<!-- Inventory -->
+
+<div id="inventory">
+
+<h2>Inventory</h2>
+
+<ul>
+
+<li>❤️ Hearts</li>
+
+<li>🌸 Flowers</li>
+
+<li>⭐ Stars</li>
+
+<li>💎 Gems</li>
+
+<li>🪙 Coins</li>
+
+</ul>
+
+</div>
+
+<!-- Game -->
+
+<main id="game">
+
+<section id="world">
+
+<h2>🌸 Love Forest 🌸</h2>
+
+<p class="story">
+
+Collect hearts to unlock the secret question.
+
+</p>
+
+<div id="gameArea">
+
+</div>
+
+<button id="playGame">
+
+Play Heart Catch
+
+</button>
+
+</section>
+
+<!-- Question -->
+
+<section id="questionSection">
+
+<div class="card">
+
+<h2>Question</h2>
+
+<p>
+
+What makes you smile the most?
+
+</p>
+
+<input
+type="text"
+id="answer"
+placeholder="Type here...">
+
+<button id="submitAnswer">
+
+Submit
+
+</button>
+
+</div>
+
+</section>
+
+<!-- Ending -->
+
+<section id="ending">
+
+<h1>
+
+Quest Complete ❤️
+
+</h1>
+
+<p>
+
+Thank you for playing Kitty Quest!
+
+</p>
+
+<button id="restart">
+
+Play Again
+
+</button>
+
+</section>
+
+</main>
+
+<!-- Audio -->
+
+<audio id="clickSound"></audio>
+<audio id="collectSound"></audio>
+<audio id="bgMusic" loop></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
