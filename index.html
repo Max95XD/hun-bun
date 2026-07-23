@@ -1,192 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kitty Quest ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story ❤️</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- Animated Background -->
-<div id="sky">
+<div class="background"></div>
+
 <div id="stars"></div>
-<div id="shooting-stars"></div>
 <div id="hearts"></div>
-<div id="flowers"></div>
-<div id="butterflies"></div>
-<div id="sparkles"></div>
-<div id="moon"></div>
-</div>
 
-<!-- Loading Screen -->
-<div id="loading">
+<div class="container">
 
-<h1>Kitty Quest ❤️</h1>
+    <h1>💖 Our Love Questions 💖</h1>
 
-<div class="loading-bar">
+    <div class="question-card">
 
-<div id="loading-fill"></div>
+        <h2>Question 1</h2>
 
-</div>
+        <p class="question">
+            When did we first meet?
+        </p>
 
-<p id="loading-text">Loading...</p>
+        <button onclick="toggleAnswer(1)">
+            Reveal Answer
+        </button>
 
-<button id="startBtn">Start Game</button>
+        <div id="answer1" class="answer">
+            It was the best day of my life ❤️
+        </div>
 
-</div>
+    </div>
 
-<!-- HUD -->
+    <div class="question-card">
 
-<header id="hud">
+        <h2>Question 2</h2>
 
-<div class="logo">
-Kitty Quest ❤️
-</div>
+        <p class="question">
+            Who says "I love you" first?
+        </p>
 
-<div class="xp-container">
+        <button onclick="toggleAnswer(2)">
+            Reveal Answer
+        </button>
 
-<div class="xp-text">
-Level 1
-</div>
+        <div id="answer2" class="answer">
+            You do 🥰
+        </div>
 
-<div class="xp-bar">
+    </div>
 
-<div id="xp-fill"></div>
+    <div class="question-card">
 
-</div>
+        <h2>Question 3</h2>
 
-</div>
+        <p class="question">
+            What is our favorite memory?
+        </p>
 
-<div class="stats">
+        <button onclick="toggleAnswer(3)">
+            Reveal Answer
+        </button>
 
-<div>❤️ <span id="heartCount">0</span></div>
+        <div id="answer3" class="answer">
+            Every moment together ❤️
+        </div>
 
-<div>🌸 <span id="flowerCount">0</span></div>
-
-<div>⭐ <span id="starCount">0</span></div>
-
-<div>💎 <span id="gemCount">0</span></div>
-
-<div>🪙 <span id="coinCount">0</span></div>
-
-</div>
-
-</header>
-
-<!-- Inventory -->
-
-<div id="inventory">
-
-<h2>Inventory</h2>
-
-<ul>
-
-<li>❤️ Hearts</li>
-
-<li>🌸 Flowers</li>
-
-<li>⭐ Stars</li>
-
-<li>💎 Gems</li>
-
-<li>🪙 Coins</li>
-
-</ul>
+    </div>
 
 </div>
-
-<!-- Game -->
-
-<main id="game">
-
-<section id="world">
-
-<h2>🌸 Love Forest 🌸</h2>
-
-<p class="story">
-
-Collect hearts to unlock the secret question.
-
-</p>
-
-<div id="gameArea">
-
-</div>
-
-<button id="playGame">
-
-Play Heart Catch
-
-</button>
-
-</section>
-
-<!-- Question -->
-
-<section id="questionSection">
-
-<div class="card">
-
-<h2>Question</h2>
-
-<p>
-
-What makes you smile the most?
-
-</p>
-
-<input
-type="text"
-id="answer"
-placeholder="Type here...">
-
-<button id="submitAnswer">
-
-Submit
-
-</button>
-
-</div>
-
-</section>
-
-<!-- Ending -->
-
-<section id="ending">
-
-<h1>
-
-Quest Complete ❤️
-
-</h1>
-
-<p>
-
-Thank you for playing Kitty Quest!
-
-</p>
-
-<button id="restart">
-
-Play Again
-
-</button>
-
-</section>
-
-</main>
-
-<!-- Audio -->
-
-<audio id="clickSound"></audio>
-<audio id="collectSound"></audio>
-<audio id="bgMusic" loop></audio>
 
 <script src="script.js"></script>
 
