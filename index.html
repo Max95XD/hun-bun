@@ -1,80 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Our Love Story ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
+<!-- Background -->
 <div class="background"></div>
 
+<!-- Effects -->
 <div id="stars"></div>
 <div id="hearts"></div>
+<div id="petals"></div>
 
-<div class="container">
+<!-- Loading Screen -->
 
-    <h1>💖 Our Love Questions 💖</h1>
+<div id="loading">
 
-    <div class="question-card">
+<div class="heart-loader">❤️</div>
 
-        <h2>Question 1</h2>
+<h1>Our Love Story</h1>
 
-        <p class="question">
-            When did we first meet?
-        </p>
-
-        <button onclick="toggleAnswer(1)">
-            Reveal Answer
-        </button>
-
-        <div id="answer1" class="answer">
-            It was the best day of my life ❤️
-        </div>
-
-    </div>
-
-    <div class="question-card">
-
-        <h2>Question 2</h2>
-
-        <p class="question">
-            Who says "I love you" first?
-        </p>
-
-        <button onclick="toggleAnswer(2)">
-            Reveal Answer
-        </button>
-
-        <div id="answer2" class="answer">
-            You do 🥰
-        </div>
-
-    </div>
-
-    <div class="question-card">
-
-        <h2>Question 3</h2>
-
-        <p class="question">
-            What is our favorite memory?
-        </p>
-
-        <button onclick="toggleAnswer(3)">
-            Reveal Answer
-        </button>
-
-        <div id="answer3" class="answer">
-            Every moment together ❤️
-        </div>
-
-    </div>
+<p>Loading Magic...</p>
 
 </div>
+
+<!-- Start Screen -->
+
+<section id="startScreen">
+
+<div class="glass">
+
+<h1>💖 Welcome 💖</h1>
+
+<p>
+Every question holds a little memory.
+Every answer holds a little love.
+</p>
+
+<button id="startBtn">
+
+❤️ Start Journey ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- Main Website -->
+
+<section id="mainContent">
+
+<header>
+
+<h1>Our Love Questions 💕</h1>
+
+<p>
+Click Reveal Answer to see each memory.
+</p>
+
+</header>
+
+<!-- Question 1 -->
+
+<div class="card">
+
+<h2>Question 1</h2>
+
+<p>
+
+When did we first meet?
+
+</p>
+
+<button onclick="toggleAnswer(1)">
+Reveal Answer
+</button>
+
+<div id="answer1" class="answer">
+
+The day my life became happier ❤️
+
+</div>
+
+</div>
+
+<!-- Question 2 -->
+
+<div class="card">
+
+<h2>Question 2</h2>
+
+<p>
+
+Who says "I Love You" first?
+
+</p>
+
+<button onclick="toggleAnswer(2)">
+Reveal Answer
+</button>
+
+<div id="answer2" class="answer">
+
+You always do 🥰
+
+</div>
+
+</div>
+
+<!-- Question 3 -->
+
+<div class="card">
+
+<h2>Question 3</h2>
+
+<p>
+
+What is our favorite memory?
+
+</p>
+
+<button onclick="toggleAnswer(3)">
+Reveal Answer
+</button>
+
+<div id="answer3" class="answer">
+
+Every moment spent together 💕
+
+</div>
+
+</div>
+
+<!-- Question 4 -->
+
+<div class="card">
+
+<h2>Question 4</h2>
+
+<p>
+
+What makes us smile?
+
+</p>
+
+<button onclick="toggleAnswer(4)">
+Reveal Answer
+</button>
+
+<div id="answer4" class="answer">
+
+Each other ❤️
+
+</div>
+
+</div>
+
+<!-- Question 5 -->
+
+<div class="card">
+
+<h2>Question 5</h2>
+
+<p>
+
+Will you always stay beside me?
+
+</p>
+
+<button onclick="toggleAnswer(5)">
+Reveal Answer
+</button>
+
+<div id="answer5" class="answer">
+
+Forever and Always ❤️🌸
+
+</div>
+
+</div>
+
+<footer>
+
+<p>
+
+Made with ❤️
+
+</p>
+
+</footer>
+
+</section>
 
 <script src="script.js"></script>
 
