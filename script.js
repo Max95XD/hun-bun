@@ -1,43 +1,91 @@
-// =========================
-// Show / Hide Answer
-// =========================
+// ===============================
+// Loading Screen
+// ===============================
 
-function toggleAnswer(number){
+window.addEventListener("load", () => {
+    const loading = document.getElementById("loading");
 
-    const answer = document.getElementById("answer"+number);
+    setTimeout(() => {
+        loading.style.opacity = "0";
 
-    if(answer.style.display === "block"){
+        setTimeout(() => {
+            loading.style.display = "none";
+        }, 1000);
 
-        answer.style.display = "none";
+    }, 1800);
+});
+
+// ===============================
+// Start Button
+// ===============================
+
+const startBtn = document.getElementById("startBtn");
+const startScreen = document.getElementById("startScreen");
+const mainContent = document.getElementById("mainContent");
+
+startBtn.addEventListener("click", () => {
+
+    startScreen.style.opacity = "0";
+
+    setTimeout(() => {
+
+        startScreen.style.display = "none";
+
+        mainContent.style.display = "block";
+
+        mainContent.animate([
+            {
+                opacity:0,
+                transform:"translateY(60px)"
+            },
+            {
+                opacity:1,
+                transform:"translateY(0)"
+            }
+        ],{
+            duration:900,
+            easing:"ease-out"
+        });
+
+    },700);
+
+});
+
+// ===============================
+// Reveal Answers
+// ===============================
+
+function toggleAnswer(id){
+
+    const answer=document.getElementById("answer"+id);
+
+    if(answer.style.display==="block"){
+
+        answer.style.display="none";
 
     }else{
 
-        answer.style.display = "block";
+        answer.style.display="block";
 
     }
 
 }
 
+// ===============================
+// Shooting Stars
+// ===============================
 
-// =========================
-// Falling Shooting Stars
-// =========================
+const stars=document.getElementById("stars");
 
-const stars = document.getElementById("stars");
+function shootingStar(){
 
-function createStar(){
+    const star=document.createElement("div");
 
-    const star = document.createElement("div");
+    star.className="star";
 
-    star.classList.add("star");
+    star.style.left=Math.random()*window.innerWidth+"px";
 
-    star.style.left = Math.random()*window.innerWidth+"px";
-
-    star.style.top = "-150px";
-
-    star.style.animationDuration = (Math.random()*2+2)+"s";
-
-    star.style.opacity = Math.random();
+    star.style.animationDuration=(Math.random()*2+2)+"s";
 
     stars.appendChild(star);
 
@@ -45,32 +93,37 @@ function createStar(){
 
         star.remove();
 
-    },5000);
+    },4500);
 
 }
 
-setInterval(createStar,700);
+setInterval(shootingStar,700);
 
-
-// =========================
+// ===============================
 // Floating Hearts
-// =========================
+// ===============================
 
-const hearts = document.getElementById("hearts");
+const hearts=document.getElementById("hearts");
 
-const emojis=["💖","💕","💗","💜","✨"];
+const heartEmoji=[
+"💖",
+"💕",
+"💗",
+"💜",
+"❤️"
+];
 
-function createHeart(){
+function makeHeart(){
 
     const heart=document.createElement("div");
 
-    heart.classList.add("heart");
+    heart.className="heart";
 
-    heart.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+    heart.innerHTML=heartEmoji[Math.floor(Math.random()*heartEmoji.length)];
 
     heart.style.left=Math.random()*100+"%";
 
-    heart.style.fontSize=(Math.random()*20+15)+"px";
+    heart.style.fontSize=(Math.random()*18+18)+"px";
 
     heart.style.animationDuration=(Math.random()*5+6)+"s";
 
@@ -84,82 +137,135 @@ function createHeart(){
 
 }
 
-setInterval(createHeart,500);
+setInterval(makeHeart,500);
 
+// ===============================
+// Falling Sakura Petals
+// ===============================
 
-// =========================
-// Twinkling Background Stars
-// =========================
+const petals=document.getElementById("petals");
 
-function createSparkle(){
+function makePetal(){
 
-    const sparkle=document.createElement("div");
+    const petal=document.createElement("div");
 
-    sparkle.style.position="fixed";
+    petal.className="petal";
 
-    sparkle.style.width="3px";
+    petal.innerHTML="🌸";
 
-    sparkle.style.height="3px";
+    petal.style.left=Math.random()*100+"%";
 
-    sparkle.style.borderRadius="50%";
+    petal.style.fontSize=(Math.random()*12+16)+"px";
 
-    sparkle.style.background="white";
+    petal.style.animationDuration=(Math.random()*6+7)+"s";
 
-    sparkle.style.left=Math.random()*window.innerWidth+"px";
-
-    sparkle.style.top=Math.random()*window.innerHeight+"px";
-
-    sparkle.style.boxShadow="0 0 15px white";
-
-    sparkle.style.opacity="0";
-
-    sparkle.style.pointerEvents="none";
-
-    sparkle.style.transition="1s";
-
-    document.body.appendChild(sparkle);
+    petals.appendChild(petal);
 
     setTimeout(()=>{
 
-        sparkle.style.opacity="1";
+        petal.remove();
 
-    },50);
+    },13000);
+
+}
+
+setInterval(makePetal,700);
+
+// ===============================
+// Twinkling Stars
+// ===============================
+
+function sparkle(){
+
+    const dot=document.createElement("div");
+
+    dot.style.position="fixed";
+
+    dot.style.left=Math.random()*window.innerWidth+"px";
+
+    dot.style.top=Math.random()*window.innerHeight+"px";
+
+    dot.style.width="3px";
+
+    dot.style.height="3px";
+
+    dot.style.background="white";
+
+    dot.style.borderRadius="50%";
+
+    dot.style.boxShadow="0 0 15px white";
+
+    dot.style.opacity="0";
+
+    dot.style.pointerEvents="none";
+
+    dot.style.transition="1s";
+
+    document.body.appendChild(dot);
 
     setTimeout(()=>{
 
-        sparkle.style.opacity="0";
+        dot.style.opacity="1";
+
+    },30);
+
+    setTimeout(()=>{
+
+        dot.style.opacity="0";
 
     },1000);
 
     setTimeout(()=>{
 
-        sparkle.remove();
+        dot.remove();
 
     },2000);
 
 }
 
-setInterval(createSparkle,300);
+setInterval(sparkle,250);
 
+// ===============================
+// Optional Music Button
+// ===============================
 
-// =========================
-// Welcome Animation
-// =========================
+// Uncomment if you add music.mp3
 
-window.onload=()=>{
+/*
+const music=new Audio("music.mp3");
 
-    document.querySelector(".container").animate([
+music.loop=true;
 
-        {opacity:0,transform:"translateY(80px)"},
+const musicBtn=document.createElement("button");
 
-        {opacity:1,transform:"translateY(0px)"}
+musicBtn.innerHTML="🎵 Music";
 
-    ],{
+musicBtn.style.position="fixed";
+musicBtn.style.top="20px";
+musicBtn.style.right="20px";
+musicBtn.style.zIndex="999";
 
-        duration:1200,
+document.body.appendChild(musicBtn);
 
-        easing:"ease-out"
+let playing=false;
 
-    });
+musicBtn.onclick=()=>{
 
-};
+if(!playing){
+
+music.play();
+
+musicBtn.innerHTML="⏸ Pause";
+
+}else{
+
+music.pause();
+
+musicBtn.innerHTML="🎵 Music";
+
+}
+
+playing=!playing;
+
+}
+*/
