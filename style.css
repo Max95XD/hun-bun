@@ -1,169 +1,284 @@
+/* ===========================
+   RESET
+=========================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
+    font-family:'Poppins',sans-serif;
     overflow-x:hidden;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#120021;
+    color:#fff;
+    background:#000;
 }
 
-/* Background */
+/* ===========================
+   BACKGROUND
+=========================== */
 
 .background{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     background:url("bg.jpg") center center/cover no-repeat;
-    z-index:-5;
-    animation:floatBackground 12s ease-in-out infinite;
+    z-index:-10;
+    animation:bgFloat 12s ease-in-out infinite;
 }
-
-/* Dark overlay */
 
 .background::after{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(20,0,40,.35);
+    background:rgba(15,0,35,.35);
 }
 
-/* Floating effect */
+@keyframes bgFloat{
 
-@keyframes floatBackground{
-
-    0%{
-        transform:scale(1) translateY(0px);
-    }
-
-    50%{
-        transform:scale(1.03) translateY(-8px);
-    }
-
-    100%{
-        transform:scale(1) translateY(0px);
-    }
-
+0%,100%{
+transform:scale(1) translateY(0);
 }
 
-/* Container */
-
-.container{
-
-    width:90%;
-    max-width:900px;
-
-    margin:60px auto;
-
-    padding:40px;
-
-    backdrop-filter:blur(12px);
-
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(255,255,255,.15);
-
-    border-radius:25px;
-
-    box-shadow:0 0 35px rgba(255,0,255,.4);
-
-}
-
-/* Title */
-
-h1{
-
-    color:white;
-
-    text-align:center;
-
-    margin-bottom:40px;
-
-    text-shadow:0 0 15px hotpink;
-
-    animation:glow 2s infinite alternate;
-
-}
-
-@keyframes glow{
-
-from{
-
-text-shadow:0 0 10px hotpink;
-
-}
-
-to{
-
-text-shadow:0 0 35px violet;
-
+50%{
+transform:scale(1.03) translateY(-8px);
 }
 
 }
 
-/* Question Cards */
+/* ===========================
+   LOADING
+=========================== */
 
-.question-card{
+#loading{
+position:fixed;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:#080014;
+z-index:9999;
+transition:1s;
+}
 
-background:rgba(255,255,255,.10);
+.heart-loader{
+font-size:80px;
+animation:heartbeat 1s infinite;
+}
 
-padding:25px;
+@keyframes heartbeat{
 
-margin-bottom:25px;
+0%,100%{transform:scale(1);}
 
-border-radius:20px;
+50%{transform:scale(1.25);}
+
+}
+
+#loading h1{
+
+margin-top:20px;
+font-size:42px;
+
+}
+
+#loading p{
+
+opacity:.8;
+margin-top:10px;
+
+}
+
+/* ===========================
+   START SCREEN
+=========================== */
+
+#startScreen{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+}
+
+.glass{
+
+width:90%;
+max-width:700px;
+
+padding:45px;
+
+text-align:center;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(16px);
 
 border:1px solid rgba(255,255,255,.15);
 
-transition:.4s;
+box-shadow:0 0 40px rgba(255,0,255,.4);
+
+animation:floatBox 4s ease-in-out infinite;
 
 }
 
-.question-card:hover{
+@keyframes floatBox{
 
+50%{
 transform:translateY(-8px);
-
-box-shadow:0 0 25px violet;
+}
 
 }
 
-.question-card h2{
+.glass h1{
 
-color:#ffd6ff;
-
-margin-bottom:15px;
-
-}
-
-.question{
-
-color:white;
-
-font-size:18px;
+font-size:46px;
 
 margin-bottom:20px;
 
+text-shadow:0 0 18px hotpink;
+
 }
 
-/* Button */
+.glass p{
 
-button{
+line-height:1.7;
 
-background:linear-gradient(45deg,#ff3cac,#784ba0,#2b86c5);
+margin-bottom:30px;
+
+}
+
+#startBtn{
+
+padding:15px 40px;
 
 border:none;
 
-padding:12px 30px;
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:18px;
+
+background:linear-gradient(45deg,#ff3cac,#784ba0,#2b86c5);
 
 color:white;
+
+transition:.35s;
+
+}
+
+#startBtn:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 25px hotpink;
+
+}
+
+/* ===========================
+   MAIN CONTENT
+=========================== */
+
+#mainContent{
+
+display:none;
+
+width:90%;
+
+max-width:900px;
+
+margin:70px auto;
+
+}
+
+header{
+
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+header h1{
+
+font-size:46px;
+
+text-shadow:0 0 20px violet;
+
+}
+
+header p{
+
+margin-top:10px;
+
+opacity:.85;
+
+}
+
+/* ===========================
+   CARDS
+=========================== */
+
+.card{
+
+margin-bottom:30px;
+
+padding:30px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,.15);
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 0 30px violet;
+
+}
+
+.card h2{
+
+margin-bottom:15px;
+
+color:#ffd3ff;
+
+}
+
+.card p{
+
+margin-bottom:20px;
+
+font-size:18px;
+
+}
+
+button{
+
+padding:12px 28px;
+
+border:none;
 
 border-radius:30px;
 
@@ -171,71 +286,79 @@ cursor:pointer;
 
 font-size:16px;
 
+background:linear-gradient(45deg,#ff3cac,#784ba0,#2b86c5);
+
+color:white;
+
 transition:.3s;
 
 }
 
 button:hover{
 
-transform:scale(1.08);
+transform:scale(1.05);
 
 box-shadow:0 0 20px hotpink;
 
 }
 
-/* Answer */
-
 .answer{
 
 display:none;
 
-margin-top:20px;
+margin-top:18px;
 
-padding:15px;
+padding:18px;
 
 border-radius:15px;
 
 background:rgba(255,255,255,.12);
 
-color:white;
-
-animation:fade .5s;
+animation:fade .4s;
 
 }
 
 @keyframes fade{
 
 from{
-
 opacity:0;
-
 transform:translateY(15px);
-
 }
 
 to{
-
 opacity:1;
-
 transform:translateY(0);
-
 }
 
 }
 
-/* Falling Stars */
+/* ===========================
+   FOOTER
+=========================== */
 
-#stars{
+footer{
+
+text-align:center;
+
+padding:40px;
+
+font-size:18px;
+
+opacity:.8;
+
+}
+
+/* ===========================
+   STARS
+=========================== */
+
+#stars,
+#hearts,
+#petals{
 
 position:fixed;
 
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
+inset:0;
 
 pointer-events:none;
 
@@ -249,13 +372,13 @@ position:absolute;
 
 width:2px;
 
-height:100px;
+height:90px;
 
 background:linear-gradient(white,transparent);
 
-opacity:.8;
+transform:rotate(45deg);
 
-animation:shoot linear infinite;
+animation:shoot linear forwards;
 
 }
 
@@ -263,13 +386,12 @@ animation:shoot linear infinite;
 
 0%{
 
-transform:translate(0,-150px) rotate(45deg);
-
 opacity:0;
+transform:translate(0,-120px) rotate(45deg);
 
 }
 
-10%{
+15%{
 
 opacity:1;
 
@@ -277,51 +399,30 @@ opacity:1;
 
 100%{
 
+opacity:0;
 transform:translate(-700px,700px) rotate(45deg);
 
-opacity:0;
-
 }
 
 }
 
-/* Floating Hearts */
-
-#hearts{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-pointer-events:none;
-
-overflow:hidden;
-
-}
+/* Hearts */
 
 .heart{
 
 position:absolute;
 
-font-size:20px;
+font-size:22px;
 
-animation:floatHeart linear infinite;
-
-opacity:.7;
+animation:heartFloat linear forwards;
 
 }
 
-@keyframes floatHeart{
+@keyframes heartFloat{
 
 0%{
 
-transform:translateY(100vh) scale(.5);
+transform:translateY(110vh);
 
 opacity:0;
 
@@ -335,7 +436,7 @@ opacity:1;
 
 100%{
 
-transform:translateY(-120px) scale(1.4);
+transform:translateY(-150px);
 
 opacity:0;
 
@@ -343,25 +444,60 @@ opacity:0;
 
 }
 
-/* Mobile */
+/* Petals */
 
-@media(max-width:700px){
+.petal{
 
-.container{
+position:absolute;
+
+font-size:18px;
+
+animation:petalFall linear forwards;
+
+}
+
+@keyframes petalFall{
+
+0%{
+
+transform:translateY(-80px) rotate(0deg);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.glass h1,
+header h1{
+
+font-size:34px;
+
+}
+
+.card{
 
 padding:20px;
-
-}
-
-h1{
-
-font-size:28px;
-
-}
-
-.question{
-
-font-size:16px;
 
 }
 
